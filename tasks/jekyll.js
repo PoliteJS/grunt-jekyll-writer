@@ -17,6 +17,7 @@ module.exports = function(grunt) {
     grunt.registerTask('jekyll-writer', 'posts source files structure filter', function() {
         var postsPath = grunt.config('jekyll-writer.source') + '/';
         var jekylPath = grunt.config('jekyll-writer.dest') + '/';
+        var postsAssetsPath = (grunt.config('jekyll-writer.assetsPath') || 'posts-assets') + '/';
 
         var articles = {};
         var articleSources = [];
@@ -58,7 +59,7 @@ module.exports = function(grunt) {
                 expand: true, 
                 src: ['**/*'], 
                 cwd: postsPath + article + '/',
-                dest: jekylPath + 'assets/' + article,
+                dest: jekylPath + postsAssetsPath + article,
                 filter: function(path) {
                     return path !== postsPath + article + '/article.md';
                 }
@@ -66,13 +67,13 @@ module.exports = function(grunt) {
         });
 
 
-        grunt.config('copy.jekyll-posts.options.process', function(src, path) {
+        grunt.config('copy.jekyll-writer-posts.options.process', function(src, path) {
             path = path.substr(0, path.lastIndexOf('/'));
             var article = path.substr(path.lastIndexOf('/')+1);
 
             // fix links to post's assets
-            src = src.replace(/=".\//g, '="/assets/' + article + '/');
-            src = src.replace(/\(.\//g, '(/assets/' + article + '/');
+            src = src.replace(/=".\//g, '="/' + postsAssetsPath + article + '/');
+            src = src.replace(/\(.\//g, '(/' + postsAssetsPath + article + '/');
 
             // try to remove inline title if there is a meta title
             if (articles[article].title) {
@@ -111,7 +112,7 @@ module.exports = function(grunt) {
 
         grunt.config('clean.options.force', true);
         grunt.config('clean.jekyll-writer-posts', ['../blog-jekyll/_posts/**/*']);
-        grunt.config('clean.jekyll-writer-assets', ['../blog-jekyll/assets/**/*']);
+        grunt.config('clean.jekyll-writer-assets', ['../blog-jekyll/' + postsAssetsPath + '**/*']);
 
         grunt.config('watch.jekyll-writer-posts', {
             files: ['../articles/**/*'],

@@ -10,7 +10,8 @@
 		grunt.initConfig({
 			'jekyll-writer': {
 				source: 'articles',
-				dest: 'jekyll'
+				dest: 'jekyll',
+				assetsPath: 'posts-assets'
 			}
 		});
 	    grunt.registerTask('default', ['jekyll-writer']);
@@ -28,6 +29,10 @@ This is where your Writer's sources are stored.
 This is your Jekyll instance folder.
 
 **Note:** both `_posts` and `assets` folder will be overridden by Writer process.
+
+### assetsPath
+
+It's the name of the folder that will host post's assest in the generated website.
 
 ## Run & Watch
     

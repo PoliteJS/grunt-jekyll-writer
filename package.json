@@ -1,7 +1,7 @@
 {
   "name": "grunt-jekyll-writer",
   "description": "allow to write posts sources with embed assets",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "homepage": "https://github.com/mpeg/grunt-jekyll-writer",
   "author": {
     "name": "Marco Pegoraro",
