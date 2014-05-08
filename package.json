@@ -1,0 +1,47 @@
+{
+  "name": "grunt-jekyll-writer",
+  "description": "allow to write posts sources with embed assets",
+  "version": "0.0.2",
+  "homepage": "https://github.com/mpeg/grunt-jekyll-writer",
+  "author": {
+    "name": "Marco Pegoraro",
+    "email": "marco.pegoraro@gmail.com",
+    "url": "http://movableapp.com"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/mpeg/grunt-jekyll-writer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mpeg/grunt-jekyll-writer/issues"
+  },
+  "licenses": [
+    {
+      "type": "MIT",
+      "url": "https://github.com/mpeg/grunt-jekyll-writer/blob/master/LICENSE-MIT"
+    }
+  ],
+  "main": "Gruntfile.js",
+  "engines": {
+    "node": ">= 0.8.0"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "peerDependencies": {
+    "grunt": "~0.4.4",
+    "grunt-contrib-clean": "~0.4.0",
+    "grunt-contrib-copy": "^0.5.0",
+    "grunt-contrib-watch": "^0.6.1"
+  },
+  "keywords": [
+    "gruntplugin"
+  ],
+  "dependencies": {
+    "extend": "^1.2.1"
+  },
+  "readme": "# grunt-jekyll-writer\n---------------------\n\ntransform an articles folder into jekyll's posts structures",
+  "readmeFilename": "README.md",
+  "_id": "grunt-jekyll-writer@0.0.2",
+  "_from": "grunt-jekyll-writer@"
+}
