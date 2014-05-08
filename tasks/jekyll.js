@@ -138,6 +138,15 @@ module.exports = function(grunt) {
 
     });
 
+    grunt.registerTask('jekyll-writer-run', '', function() {
+        var next = this.async();
+        var cmd = childProcess.exec('cd ' + grunt.config('jekyll-writer.dest') + ' && jekyll build');
+        cmd.stdout.on('data', function(chunk) {
+            process.stdout.write(chunk);
+        });
+        cmd.on('exit', next);
+    });
+
     grunt.registerTask('jekyll-writer-watch', '', function() {
         var tasks = [
             'jekyll-writer',
